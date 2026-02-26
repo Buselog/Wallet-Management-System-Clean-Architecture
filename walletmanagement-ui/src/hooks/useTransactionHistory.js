@@ -22,17 +22,17 @@ export const useTransactionHistory = () => {
 
     const fetchHistory = useCallback(async () => {
         if (!selectedWalletId) return;
-        
+
         setLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`https://localhost:7266/api/Wallet/history/${selectedWalletId}`, {
+            const response = await axios.get(`http://localhost:5138/api/Wallet/history/${selectedWalletId}`, {
                 headers: { Authorization: `Bearer ${token}` },
-                params: { 
-                    start: filters.start || null, 
-                    end: filters.end || null, 
-                    page: filters.page, 
-                    size: filters.size 
+                params: {
+                    start: filters.start || null,
+                    end: filters.end || null,
+                    page: filters.page,
+                    size: filters.size
                 }
             });
             setHistory(response.data.items || []);
