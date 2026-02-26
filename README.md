@@ -1,47 +1,76 @@
-# Cüzdan Yönetim Sistemi - Clean Architecture
+<img width="1919" height="815" alt="Ekran görüntüsü 2026-02-26 091201" src="https://github.com/user-attachments/assets/d51534d0-e143-49db-a70b-7bc044e99f94" /># Cüzdan Yönetim Sistemi - Clean Architecture -WebAPI
 
-Bu proje, .NET 8 ve React kullanılarak geliştirilmiş; güvenlik, performans ve sürdürülebilirlik odaklı bir Cüzdan Yönetim Sistemi'dir. Proje, bağımlılıkları minimize eden ve test edilebilirliği artıran Clean Architecture (Temiz Mimari) prensiplerine uygun olarak tasarlanmıştır.
+Bu proje, .NET 8 ve React kullanılarak geliştirilmiş; kullanıcıların cüzdan oluşturabildiği, güvenli para yatırma/çekme işlemleri yapabildiği ve işlem geçmişini görüntüleyebildiği kapsamlı bir Cüzdan Yönetim API ve React UI uygulamasıdır. Proje, bağımlılıkların içe doğru olduğu, sürdürülebilir ve test edilebilir bir mimari olan **Clean Architecture** prensiplerine göre geliştirilmiştir.
 
-## 🏗️ Mimari Yapı ve Tasarım Desenleri
+## 🏗️ Mimari Katmanlar ve Klasör Yapısı
 
-Core (Domain & Application): Entity'ler, özel istisnalar (Exceptions) ve merkezi iş mantığını (WalletManager) içerir.
+### 1. Core
 
-Infrastructure (Altyapı): Entity Framework Core ve MS SQL Server kullanarak veri kalıcılığını sağlar.
+- **Domain**: User, Wallet, Transaction gibi temel entity'leri ve domain-specific exception sınıflarını (ör: InsufficientFundsException) barındırır.
 
-Presentation (Web API): RESTful uç noktaları (Endpoints) içerir ve Swagger ile dokümante edilmiştir.
+- **Concrete**: Repository interface'lerinin tanımlandığı katmandır.
 
-UI (React): Tailwind CSS ile güçlendirilmiş, modern ve kullanıcı dostu bir arayüz sunar.
+- **Application**: İş kurallarını tanımlayacak olan Manager interface'lerinin barındığı; DTO, Mappings ve Validators yapılarının yazıldığı katmandır.
 
-## 🚀 Öne Çıkan Özellikler
 
-Güvenli İşlemler: Para yatırma ve çekme işlemleri, yüksek performans ve veri bütünlüğü için Stored Procedure'ler üzerinden yürütülür.
+### 2. Infrastructure
 
-Eşzamanlılık (Concurrency) Yönetimi: Aynı anda yapılan para çekme işlemlerinde bakiye tutarlılığını korumak için gerekli mekanizmalar uygulanmıştır.
+- **InnerInfrastructure**: İş kurallarının uygulandığı, Manager interface'lerinin implement edildiği katmandır.
+- **Persistence**: EF Core DbContext yapılandırması, veritabanı ile ilişkili Repository interface'lerinin uygulanması ve migration işlemlerinin uygulaması bu katmandadır.
 
-JWT Kimlik Doğrulama: Kullanıcı kayıt ve giriş işlemleri, token tabanlı güvenli yetkilendirme ile korunmaktadır.
+### 3. Presentation (WalletManagement.WebAPI)
 
-Gelişmiş Listeleme: İşlem geçmişi; tarih aralığı filtresi ve zorunlu sayfalama (Paging) ile optimize edilmiştir.
+- Jwt korumalı REST endpointlerinin sunulduğu ve Swagger üzerinden tüm API dokümantasyonuna erişilebildiği yapıdır.
 
-Birim Testleri: Merkezi iş mantığı, xUnit ve Moq kütüphaneleri kullanılarak test edilmiştir.
+### 4. React UI
 
-## 🛠️ Teknoloji Yığını
-Backend: .NET 8, EF Core, ASP.NET Core Web API
+- Tailwind CSS ile güçlendirilmiş, modern ve kullanıcı dostu bir arayüz sunar.
 
-Frontend: React, Tailwind CSS, Axios
+-----
 
-Veritabanı: MS SQL Server
 
-Test: xUnit, Moq
+## 🚀 Öne Çıkan Özellikler & Teknik Detaylar
+
+- **Stored Procedure Kullanımı**: Para yatırma ve çekme işlemleri, yüksek performans ve veri bütünlüğü için **Stored Procedure**'ler üzerinden yürütülür.
+
+- **Concurrency & Idempotency**: Aynı cüzdandan paralel para çekme isteklerinde tutarlılık korunur. ReferenceId kontrolü ile idempotency engellenir.
+
+- **JWT Kimlik Doğrulama**: Kullanıcı kayıt ve giriş işlemleri, **token tabanlı güvenli yetkilendirme** ile korunmaktadır.
+
+- **Gelişmiş Filtreleme & Paging**: İşlem geçmişi; tarih aralığı filtresi ve sayfalama (paging) ile optimize edilmiştir.
+
+- **Birim Testleri**: Merkezi iş mantığı, xUnit ve Moq kütüphaneleri kullanılarak test edilmiştir.
+
+- **Logging**: Tüm servis çağırımları merkezi bir yapı üzerinden yapılandırılmış şekilde loglanır.
+
+-----
+
+
+## 🛠️ Kullanılan Teknolojiler
+
+- **Backend: .NET 8, EF Core, ASP.NET Core Web API**
+
+- **Frontend: React, Tailwind CSS, Axios**
+
+- **Veritabanı: MS SQL Server**
+
+- **Test: xUnit, Moq**
+
+
+-----
+
 
 ## ⚙️ Kurulum ve Çalıştırma
 
 #### 1 Veritabanı Kurulumu
 
-Database/ klasörüne gidin.
+- ***Database/script.sql*** dosyasını SQL Server'da çalıştırın.
 
-script.sql dosyasını SQL Server üzerinde çalıştırarak tabloları, stored procedure'leri ve şemayı oluşturun.
+- ***script.sql*** dosyasını SQL Server üzerinde çalıştırarak tabloları, stored procedure'leri ve şemayı oluşturun.
 
-Web API projesindeki appsettings.json dosyasında bulunan ConnectionStrings bölümünü kendi sunucunuza göre güncelleyin.
+- ***Presentation/WalletManagement.WebAPI/appsettings.json*** içindeki ***ConnectionString***'i kendi SQL Server adresinize göre düzenleyin.
+
+-----
 
 
 #### 2 Backend Çalıştırma
@@ -50,14 +79,80 @@ cd WalletManagementSystem
 dotnet restore
 dotnet run --project Presentation/WalletManagement.WebAPI
 
-#### 3. Frontend Çalıştırma
+- **URL**: API ***https://localhost:7266*** portunda çalışmaktadır.
 
-cd walletmanagement-ui
+-----
+
+
+#### 3. Frontend (UI) Çalıştırma
+
+- **walletmanagement-ui** klasöründe terminali açın:
+
+***cd walletmanagement-ui
 npm install
-npm start
+npm start***
 
-## 🧪 Testleri Çalıştırma
+**URL**: Uygulama ***http://localhost:3000*** portunda açılacaktır.
 
-dotnet test
+
+-----
+
+
+## 📝 Örnek Test Verileri ve Kullanım Senaryosu
+
+**Test Hesabı Bilgileri (Örnek)**
+
+- Aşağıdaki bilgilerle veritabanı örnek kullanım senaryoları ile doldurulmuştur. 
+
+**Kullanıcı Adı**: ugurcankadi
+**Şifre**: kadiugurcn3253
+**Cüzdan ID(WalletId)**: 2 ve 3 nolu cüzdan
+
+
+-----
+
+
+## 🖼️ Proje İle İlgili Ekran Görüntüleri
+
+
+### 🏠 Login: 
+
+<img src="https://github.com/user-attachments/assets/dc7deaaf-c47b-424a-9ca5-2a8385b47166" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/f37183b2-bf64-425c-84bc-d9a7af2aadaa" width:600>
+
+### 🪪 Register: 
+
+<img src="https://github.com/user-attachments/assets/ee4515dc-5c12-40ef-8922-5f9db9387068" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/3822fbd5-073f-4c7f-acd4-7ccfba19c216" width:600>
+
+
+## 📋 Home Page 
+
+<img src="https://github.com/user-attachments/assets/07f6b941-36d6-4acc-978f-5e42d8055bde" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/5295cacb-5e00-4ceb-aa6f-16a3b8033528" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/f233bd8a-405d-45b6-9489-bab6450af4dc" width:600>
+
+
+<img src="    " width:600>
+<img src="    " width:600>
+<img src="    " width:600>
+<img src="    " width:600>
+
+<img src="    " width:600>
+<img src="    " width:600>
+<img src="    " width:600>
+<img src="    " width:600>
+
+
+
+
 
 
