@@ -75,9 +75,9 @@ Bu proje, .NET 8 ve React kullanılarak geliştirilmiş; kullanıcıların cüzd
 
 #### 2 Backend Çalıştırma
 
-``` cd WalletManagementSystem
+```bash cd WalletManagementSystem
 dotnet restore
-dotnet run --project Presentation/WalletManagement.WebAPI
+dotnet run --project Presentation/WalletManagement.WebAPI```
 
 - **URL**: API ***https://localhost:7266*** portunda çalışmaktadır.
 
@@ -89,9 +89,9 @@ dotnet run --project Presentation/WalletManagement.WebAPI
 - **walletmanagement-ui** klasöründe terminali açın:
 
 
-```cd walletmanagement-ui
+```bash cd walletmanagement-ui
 npm install
-npm start
+npm start```
 
 **URL**: Uygulama ***http://localhost:3000*** portunda açılacaktır.
 
