@@ -1,4 +1,4 @@
-<img width="1919" height="815" alt="Ekran görüntüsü 2026-02-26 091201" src="https://github.com/user-attachments/assets/d51534d0-e143-49db-a70b-7bc044e99f94" /># Cüzdan Yönetim Sistemi - Clean Architecture -WebAPI
+# Cüzdan Yönetim Sistemi - Clean Architecture -WebAPI
 
 Bu proje, .NET 8 ve React kullanılarak geliştirilmiş; kullanıcıların cüzdan oluşturabildiği, güvenli para yatırma/çekme işlemleri yapabildiği ve işlem geçmişini görüntüleyebildiği kapsamlı bir Cüzdan Yönetim API ve React UI uygulamasıdır. Proje, bağımlılıkların içe doğru olduğu, sürdürülebilir ve test edilebilir bir mimari olan **Clean Architecture** prensiplerine göre geliştirilmiştir.
 
@@ -115,14 +115,14 @@ npm start***
 ## 🖼️ Proje İle İlgili Ekran Görüntüleri
 
 
-### 🏠 Login: 
+### 🏠 Giriş: 
 
 <img src="https://github.com/user-attachments/assets/dc7deaaf-c47b-424a-9ca5-2a8385b47166" width:600>
 
 
 <img src="https://github.com/user-attachments/assets/f37183b2-bf64-425c-84bc-d9a7af2aadaa" width:600>
 
-### 🪪 Register: 
+### 🪪 Kayıt: 
 
 <img src="https://github.com/user-attachments/assets/ee4515dc-5c12-40ef-8922-5f9db9387068" width:600>
 
@@ -130,7 +130,7 @@ npm start***
 <img src="https://github.com/user-attachments/assets/3822fbd5-073f-4c7f-acd4-7ccfba19c216" width:600>
 
 
-## 📋 Home Page 
+## 📋 Ana Sayfa
 
 <img src="https://github.com/user-attachments/assets/07f6b941-36d6-4acc-978f-5e42d8055bde" width:600>
 
@@ -141,15 +141,56 @@ npm start***
 <img src="https://github.com/user-attachments/assets/f233bd8a-405d-45b6-9489-bab6450af4dc" width:600>
 
 
-<img src="    " width:600>
-<img src="    " width:600>
-<img src="    " width:600>
-<img src="    " width:600>
+#### 👛 Yeni Cüzdan Oluşturma İşlemi:
 
-<img src="    " width:600>
-<img src="    " width:600>
-<img src="    " width:600>
-<img src="    " width:600>
+
+<img src="https://github.com/user-attachments/assets/88351043-2d95-4a2d-98db-27dc20f736ac" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/472b6d02-ff38-49f8-9182-a2c7b606eb72" width:600>
+
+
+#### ❓ Bakiyesi Bulunan Cüzdanı Silme İsteği:
+
+<img src="https://github.com/user-attachments/assets/20d46526-9690-4190-a0e4-fe21033a6fc5" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/c1c6ec55-6982-440d-8323-6443c319d76b" width:600>
+
+
+## ➡️ İşlem Sayfası
+
+
+<img src="https://github.com/user-attachments/assets/cba4cdb1-d431-448c-9b13-5ce08a4c0331" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/bd2171ca-c7a8-4eb0-b53f-c49d19a60be1" width:600>
+
+
+#### ✅ Onay Kartı
+
+<img src="https://github.com/user-attachments/assets/871adcc7-6998-4257-8a5b-949e5def7ce7" width:600>
+
+
+#### ❌ Bakiyeyi Aşan Miktarda Para Çekme İsteği:
+
+
+<img src="https://github.com/user-attachments/assets/39af1a37-dce6-40b1-962a-3b2fa2a48391" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/975b04d7-c578-43ac-bbe6-464dff8e9386" width:600>
+
+
+
+## 📈 İşlem Geçmişi Sayfası (Tarih Filtreleme & Sayfalama)
+
+
+<img src="https://github.com/user-attachments/assets/3cfd0e5b-32a4-423a-98c9-32c2b5e5bc56" width:600>
+
+
+<img src="https://github.com/user-attachments/assets/4de20939-3538-4366-bf9d-d8aeab53a451" width:600>
+
+
 
 
 
