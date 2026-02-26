@@ -1,4 +1,4 @@
-# Cüzdan Yönetim Sistemi - Clean Architecture -WebAPI
+# Cüzdan Yönetim Sistemi - Clean Architecture - WebAPI
 
 Bu proje, .NET 8 ve React kullanılarak geliştirilmiş; kullanıcıların cüzdan oluşturabildiği, güvenli para yatırma/çekme işlemleri yapabildiği ve işlem geçmişini görüntüleyebildiği kapsamlı bir Cüzdan Yönetim API ve React UI uygulamasıdır. Proje, bağımlılıkların içe doğru olduğu, sürdürülebilir ve test edilebilir bir mimari olan **Clean Architecture** prensiplerine göre geliştirilmiştir.
 
@@ -75,9 +75,9 @@ Bu proje, .NET 8 ve React kullanılarak geliştirilmiş; kullanıcıların cüzd
 
 #### 2 Backend Çalıştırma
 
-cd WalletManagementSystem
+``` cd WalletManagementSystem
 dotnet restore
-dotnet run --project Presentation/WalletManagement.WebAPI
+dotnet run --project Presentation/WalletManagement.WebAPI```
 
 - **URL**: API ***https://localhost:7266*** portunda çalışmaktadır.
 
@@ -88,9 +88,10 @@ dotnet run --project Presentation/WalletManagement.WebAPI
 
 - **walletmanagement-ui** klasöründe terminali açın:
 
-***cd walletmanagement-ui
+
+```cd walletmanagement-ui
 npm install
-npm start***
+npm start```
 
 **URL**: Uygulama ***http://localhost:3000*** portunda açılacaktır.
 
