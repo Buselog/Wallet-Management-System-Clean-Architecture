@@ -73,7 +73,9 @@ Bu proje, .NET 8 ve React kullanılarak geliştirilmiş; kullanıcıların cüzd
 -----
 
 
-#### 2 Backend Çalıştırma
+#### 2 Backend(API) Çalıştırma
+
+- Projenin ana dizininde terminali açarak şu komutları çalıştırın:
 
 ```bash
 cd WalletManagementSystem
@@ -81,7 +83,8 @@ dotnet restore
 dotnet run --project Presentation/WalletManagement.WebAPI
 ```
 
-- **URL**: API ***https://localhost:7266*** portunda çalışmaktadır.
+- **API URL**:API varsayılan olarak ***http://localhost:5138*** üzerinden yayın yapmaktadır.
+- **Swagger**: ***http://localhost:5138/swagger***
 
 -----
 
