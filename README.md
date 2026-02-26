@@ -109,9 +109,9 @@ npm start
 
 - Aşağıdaki bilgilerle veritabanı örnek kullanım senaryoları ile doldurulmuştur. 
 
-**Kullanıcı Adı**: ugurcankadi
-**Şifre**: kadiugurcn3253
-**Cüzdan ID(WalletId)**: 2 ve 3 nolu cüzdan
+| Kullanıcı Adı | Şifre | Test Cüzdan ID'leri |
+| :--- | :--- | :--- |
+| `ugurcankadi` | `kadiugurcn3253` | `2` ve `3` |
 
 
 -----
