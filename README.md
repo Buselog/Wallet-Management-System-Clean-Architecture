@@ -83,7 +83,7 @@ dotnet restore
 dotnet run --project Presentation/WalletManagement.WebAPI
 ```
 
-- **API URL**:API varsayılan olarak ***http://localhost:5138*** üzerinden yayın yapmaktadır.
+- **API URL**:API varsayılan olarak ***http://localhost:5138*** üzerinden yayın yapmaktadır, terminaldeki portu kontrol ediniz.
 - **Swagger**: ***http://localhost:5138/swagger***
 
 -----
